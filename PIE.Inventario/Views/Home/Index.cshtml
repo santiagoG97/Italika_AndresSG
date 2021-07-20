@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+<head>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    @*@{
+        if (ViewBag.TieneMensaje)
+        {
+            <script>
+                $(document).ready(function () {
+                    var parametro = $("#txtMensaje").val();
+                    swal(parametro.split('/')[0], parametro.split('/')[1], parametro.split('/')[2]);
+                });
+            </script>
+        }
+    }*@
+</head>
+<input type="hidden" id="txtMensaje" value="@ViewBag.Mensaje" />
+<div id="floatContainer" class="floatContainer">
+    <div class="datagrid">
+        <table id="table_Products" class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" style="width:30%;">SKU</th>
+                    <th scope="col" style="width:30%;">Fert</th>
+                    <th scope="col" style="width:10%;">Serie</th>
+                    <th scope="col" style="width:5%;">Tipo</th>
+                    <th scope="col" style="width:5%;">Modelo</th>
+                    <th scope="col" style="width:5%;"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+@*MODALES*@
+<div id="dvEditarProducto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-full" role="document">
+        <div class="modal-content">
+            <div style="background-color: #252323; color:aliceblue;" class="modal-header">
+                <i class="fa fa-times fa-2x" aria-hidden="true" style="position:absolute; top: 10px; right: 10px; cursor:pointer; color:#FFFFFF" data-dismiss="modal" id="iclosed"></i>
+                <h5 class="modal-title" id="lblTituloAgregarExistencia"><span class="fas fa-edit"></span>  Editar Producto</h5>
+            </div>
+            <div class="modal-body">
+                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                    <b><label>SKU: </label></b>
+                    <input type="text" name="sku" maxlength="5" id="txtSku" class="form-control" autocomplete="off" placeholder="Excribe SKU de producto">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                    <b><label>Fert: </label></b>
+                    <input type="text" name="fert" maxlength="5" id="txtFert" class="form-control" autocomplete="off" placeholder="Excribe Fert de producto">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                    <b><label>Numero de Serie: </label></b>
+                    <input type="text" name="numSerie" maxlength="5" id="txtNumSerie" class="form-control" autocomplete="off" placeholder="Excribe numero de serie de producto">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                    <b><label>Tipo Producto: </label></b>
+                    <select class="form-control" id="ddlSucursalExistencias" name="sucursalExistencias">
+                        <option value="0" disabled selected>--Elige una opción--</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                    <b><label>Modelo Producto: </label></b>
+                    <select class="form-control" id="ddlSucursalExistencias" name="sucursalExistencias">
+                        <option value="0" disabled selected>--Elige una opción--</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-success" onclick="">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            cargarProductosTablaPrincipal()
+        });
+    </script>
+}
+
