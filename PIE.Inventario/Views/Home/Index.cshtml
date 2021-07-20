@@ -1,12 +1,11 @@
-﻿
+﻿@model PIE.Entities.Catalogo.ProductoEntity
 @{
     ViewData["Title"] = "Home";
 }
 <head>
     <script src="~/lib/jquery/dist/jquery.js"></script>
-    @*@{
-        if (ViewBag.TieneMensaje)
-        {
+    @{
+        if (ViewBag.TieneMensaje){
             <script>
                 $(document).ready(function () {
                     var parametro = $("#txtMensaje").val();
@@ -14,7 +13,7 @@
                 });
             </script>
         }
-    }*@
+     }
 </head>
 <input type="hidden" id="txtMensaje" value="@ViewBag.Mensaje" />
 <div id="floatContainer" class="floatContainer">
@@ -40,38 +39,37 @@
         <div class="modal-content">
             <div style="background-color: #252323; color:aliceblue;" class="modal-header">
                 <i class="fa fa-times fa-2x" aria-hidden="true" style="position:absolute; top: 10px; right: 10px; cursor:pointer; color:#FFFFFF" data-dismiss="modal" id="iclosed"></i>
-                <h5 class="modal-title" id="lblTituloAgregarExistencia"><span class="fas fa-edit"></span>  Editar Producto</h5>
+                <h5 class="modal-title" id="lblTituloEditarProducto"><span class="fas fa-edit"></span>  Editar Producto</h5>
             </div>
-            <div class="modal-body">
-                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
-                    <b><label>SKU: </label></b>
-                    <input type="text" name="sku" maxlength="5" id="txtSku" class="form-control" autocomplete="off" placeholder="Excribe SKU de producto">
+            <form asp-controller="Home" asp-action="ActualizaProducto" method="post">
+                <div class="modal-body">
+                    <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                        <b><label>SKU: </label></b>
+                        <input type="hidden" name="Id" id="txtIdProducto">
+                        <input type="text" name="SKU" id="txtSku" class="form-control" autocomplete="off" placeholder="Excribe SKU de producto" required>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                        <b><label>Fert: </label></b>
+                        <input type="text" name="Fert" id="txtFert" class="form-control" autocomplete="off" placeholder="Excribe Fert de producto" required>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                        <b><label>Numero de Serie: </label></b>
+                        <input type="text" name="NumSerie" id="txtNumSerie" class="form-control" autocomplete="off" placeholder="Excribe numero de serie de producto" required>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                        <b><label>Tipo Producto: </label></b>
+                        <select class="form-control" id="ddlTipo" name="objModelo.objTipo.Id" onchange="obtenerListaModeloByIdTipo(this.value,0)"></select>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
+                        <b><label>Modelo Producto: </label></b>
+                        <select class="form-control" id="ddlModelo" name="Fk_Modelo"></select>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
-                    <b><label>Fert: </label></b>
-                    <input type="text" name="fert" maxlength="5" id="txtFert" class="form-control" autocomplete="off" placeholder="Excribe Fert de producto">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" onclick="">Guardar</button>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
-                    <b><label>Numero de Serie: </label></b>
-                    <input type="text" name="numSerie" maxlength="5" id="txtNumSerie" class="form-control" autocomplete="off" placeholder="Excribe numero de serie de producto">
-                </div>
-                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
-                    <b><label>Tipo Producto: </label></b>
-                    <select class="form-control" id="ddlSucursalExistencias" name="sucursalExistencias">
-                        <option value="0" disabled selected>--Elige una opción--</option>
-                    </select>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-xs-12 row" style="margin-top:20px; margin-left:5px;">
-                    <b><label>Modelo Producto: </label></b>
-                    <select class="form-control" id="ddlSucursalExistencias" name="sucursalExistencias">
-                        <option value="0" disabled selected>--Elige una opción--</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-success" onclick="">Guardar</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

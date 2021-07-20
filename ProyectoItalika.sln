@@ -5,11 +5,17 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PIE.Inventario", "PIE.Inventario\PIE.Inventario.csproj", "{788D1206-E942-45D5-AD1B-6B908EF65781}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.Bussines", "PIE.Bussines\PIE.Bussines.csproj", "{1C9954B8-0CB5-4B15-8A17-4F40D331FA09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PIE.Bussines", "PIE.Bussines\PIE.Bussines.csproj", "{1C9954B8-0CB5-4B15-8A17-4F40D331FA09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.Data", "PIE.Data\PIE.Data.csproj", "{B96185F7-EBB6-4C63-AEF9-9AAA40429CBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PIE.Data", "PIE.Data\PIE.Data.csproj", "{B96185F7-EBB6-4C63-AEF9-9AAA40429CBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.Entities", "PIE.Entities\PIE.Entities.csproj", "{5BA5F7B0-8B02-498E-9A17-2AC6444489D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PIE.Entities", "PIE.Entities\PIE.Entities.csproj", "{5BA5F7B0-8B02-498E-9A17-2AC6444489D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entregables", "Entregables", "{28A4AA0A-EA82-491E-B7CF-AB4CF1CC5469}"
+	ProjectSection(SolutionItems) = preProject
+		Entregables\BDscriptExamenItalika.sql = Entregables\BDscriptExamenItalika.sql
+		Entregables\MANUAL DE USUARIO.pdf = Entregables\MANUAL DE USUARIO.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
